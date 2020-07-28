@@ -92,7 +92,7 @@ Mar  1 14:30:02 CentOS-65-64-minimal postfix/pickup[18699]: 04D4A200013A: uid=0 
 Mar  1 14:30:02 CentOS-65-64-minimal postfix/cleanup[26034]: 04D4A200013A: message-id=<20200301123002.CentOS-2-64-minimal.localdomain>      
      
 **Match**:    
-'%{SYSLOGTIMESTAMP:timestamp} %{SYSLOGHOST:machine} %{DATA:msg}: %{DATA:msg_id}: %{GREEDYDATA:full_msg}' 
+'%{SYSLOGTIMESTAMP:timestamp} %{SYSLOGHOST:machine} %{DATA:msg}: %{DATA:msg_id}: (?:|message-id=%{DATA:message_id}|uid=%{NUMBER:uid} from=%{DATA:from}|from=%{DATA:from}, size=%{DATA:size}, %{GREEDYDATA}|to=%{DATA:to}, orig_to=%{DATA:orig_to}, relay=%{DATA:relay}, delay=%{DATA:delay}, delays=%{DATA:delays}, dsn=%{DATA:dsn}, status=%{DATA:status}|removed)' 
 
 
 ## messages
