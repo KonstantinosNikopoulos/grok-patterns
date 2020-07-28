@@ -141,3 +141,14 @@ Feb 25 03:39:54 Updated: firewalld-filesystem-0.6.3-2.el7_7.3.noarch
      
 **Match**:    
 '%{SYSLOGTIMESTAMP:timestamp} %{DATA:type}: %{GREEDYDATA:message}'
+
+## audit
+
+**Example**:    
+type=USER_LOGIN msg=audit(1583304581.148:64839407): user pid=7348 uid=0 auid=4294967295 ses=4294967295 msg='op=login acct="root" exe="/usr/sbin/sshd" hostname=? addr=222.186.180.6 terminal=ssh res=failed'         
+type=CRYPTO_KEY_USER msg=audit(1583304583.647:64839408): user pid=7355 uid=0 auid=4294967295 ses=4294967295 msg='op=destroy kind=server fp=da:71:ec:2e:20:eb:96:4f:31:e4:ef:7a:9c:f4:c3:b2 direction=? spid=7355 suid=0  exe="/usr/sbin/sshd" hostname=? addr=222.186.180.6 terminal=? res=success'          
+type=CRYPTO_KEY_USER msg=audit(1583304589.584:64839422): user pid=7357 uid=0 auid=4294967295 ses=4294967295 msg='op=destroy kind=server fp=f6:47:77:5e:71:ef:93:e4:72:8d:82:25:a7:37:c3:51 direction=? spid=7357 suid=0  exe="/usr/sbin/sshd" hostname=? addr=140.246.191.130 terminal=? res=success'       
+type=USER_LOGIN msg=audit(1583304589.584:64839423): user pid=7357 uid=0 auid=4294967295 ses=4294967295 msg='op=login acct="(unknown)" exe="/usr/sbin/sshd" hostname=? addr=140.246.191.130 terminal=ssh res=failed'                 
+     
+**Match**:    
+'type=%{DATA:type} msg=%{DATA:msg}: %{DATA:name} pid=%{NUMBER:pid} uid=%{NUMBER:uid} auid=%{NUMBER:auid} ses=%{NUMBER:ses} msg=%{GREEDYDATA:full_msg}'
