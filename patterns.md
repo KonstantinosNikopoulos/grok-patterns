@@ -151,4 +151,4 @@ type=CRYPTO_KEY_USER msg=audit(1583304589.584:64839422): user pid=7357 uid=0 aui
 type=USER_LOGIN msg=audit(1583304589.584:64839423): user pid=7357 uid=0 auid=4294967295 ses=4294967295 msg='op=login acct="(unknown)" exe="/usr/sbin/sshd" hostname=? addr=140.246.191.130 terminal=ssh res=failed'                 
      
 **Match**:    
-'type=%{DATA:type} msg=%{DATA:msg}: %{DATA:name} pid=%{NUMBER:pid} uid=%{NUMBER:uid} auid=%{NUMBER:auid} ses=%{NUMBER:ses} msg=%{GREEDYDATA:full_msg}'
+'type=%{DATA:type} msg=%{DATA:msg}:\s*(?:|user) pid=%{NUMBER:pid} uid=%{NUMBER:uid}\s*(?:|old) auid=%{NUMBER:auid}\s*(?:|new auid=0 old) ses=%{NUMBER:ses} (?:|msg=%{GREEDYDATA:full_msg})'
