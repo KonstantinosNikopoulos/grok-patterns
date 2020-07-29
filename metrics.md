@@ -13,4 +13,12 @@ clientip, ident, auth, timestamp, verb, request, httpversion, rawrequest, respon
 
 **Metrics**:  
 
-1) access_log_counter
+**1) access_log_counter**      
+It is a counter metric for labels: verb, request, response. It shows the number of appearances for each combination of labels.     
+
+**Metric example**:        
+access_log_counter{code="200",method="OPTIONS",request="/"} 1       
+access_log_counter{code="400",method="",request=""} 30        
+access_log_counter{code="400",method="GET",request="/"} 25       
+access_log_counter{code="400",method="GET",request="/w00tw00t.at.ISC.SANS.DFind:)"} 1       
+access_log_counter{code="400",method="POST",request="/HNAP1/"} 1       
