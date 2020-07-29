@@ -1,4 +1,4 @@
-# grok-patterns
+# grok-logfiles
 ### Author: Konstantinos Nikopoulos
 
-Grok patterns for common log files.
+Configure patterns and metrics in grok for common log files.
