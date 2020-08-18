@@ -9,7 +9,7 @@
 177.137.119.138 - - [02/Feb/2020:09:11:40 -0500] "-" 408 - "-" "-"     
      
 **Match**:    
-'%{IPORHOST:clientip} %{USER:ident} %{USER:auth} \[%{HTTPDATE:timestamp}\] "(?:%{WORD:method} %{NOTSPACE:request}(?: HTTP/%{NUMBER:httpversion})?|%{DATA:rawrequest})" %{NUMBER:code} (?:%{NUMBER:bytes}|-) %{QS:referrer} %{QS:agent}' 
+**'%{IPORHOST:clientip} %{USER:ident} %{USER:auth} \[%{HTTPDATE:timestamp}\] "(?:%{WORD:method} %{NOTSPACE:request}(?: HTTP/%{NUMBER:httpversion})?|%{DATA:rawrequest})" %{NUMBER:code} (?:%{NUMBER:bytes}|-) %{QS:referrer} %{QS:agent}' **
 
 ## apache
 
