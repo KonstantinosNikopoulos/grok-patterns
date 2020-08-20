@@ -87,12 +87,12 @@ Mar  1 03:20:01 ns508880 CROND[13861]: (root) CMD (/usr/lib64/sa/sa1 1 1)
 
 **Example**:    
 Mar  1 10:08:18 CentOS-65-64-minimal postfix/local[2723]: 56E772000112: to=<CentOS-25-64-minimal.localdomain>, orig_to=<root>, relay=local, delay=72497, delays=72497/0.04/0/0.06, dsn=2.0.0, status=sent (delivered to mailbox)      
-Mar  1 10:08:18 CentOS-65-64-minimal postfix/qmgr[8847]: 56E772000112: removed       
+Mar  1 11:18:18 theemailco postfix/smtpd[11022]: warning: unknown[46.38.144.231]: SASL LOGIN authentication failed: authentication failure       
 Mar  1 14:30:02 CentOS-65-64-minimal postfix/pickup[18699]: 04D4A200013A: removed                 
 Mar  1 14:30:02 CentOS-65-64-minimal postfix/cleanup[26034]: 04D4A200013A: message-id=<20200301123002.CentOS-2-64-minimal.localdomain>      
      
 **Match**:    
-'%{SYSLOGTIMESTAMP:timestamp} %{SYSLOGHOST:machine} %{DATA:msg}: %{DATA:msg_id}: (?:message-id=%{GREEDYDATA:message_id}|uid=%{NUMBER:uid} from=%{GREEDYDATA:from}|from=%{DATA:from}, size=%{DATA:size}, %{GREEDYDATA}|to=%{DATA:to}, orig_to=%{DATA:orig_to}, relay=%{DATA:relay}, delay=%{DATA:delay}, delays=%{DATA:delays}, dsn=%{DATA:dsn}, status=%{DATA:status} %{GREEDYDATA}|removed)' 
+'%{MONTH:month} +%{MONTHDAY:day} %{TIME:time} %{SYSLOGHOST:machine} %{DATA:msg}: (?:%{DATA:msg_id}: message-id=%{GREEDYDATA:message_id}|%{DATA:msg_id}: uid=%{NUMBER:uid} from=%{GREEDYDATA:from}|%{DATA:msg_id}: from=%{DATA:from}, size=%{DATA:size}, %{GREEDYDATA}|%{DATA:msg_id}: to=%{DATA:to}, orig_to=%{DATA:orig_to}, relay=%{DATA:relay}, delay=%{DATA:delay}, delays=%{DATA:delays}, dsn=%{DATA:dsn}, status=%{DATA:status} %{GREEDYDATA}|%{DATA:msg_id}: removed|%{WORD:priority} %{GREEDYDATA:full_msg}|%{WORD:priority}: %{GREEDYDATA:full_msg})' 
 
 
 ## messages
