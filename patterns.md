@@ -116,8 +116,16 @@ Feb 16 04:01:01 ns508880 systemd: Started Session 10123 of user root.
 2019-12-12T20:21:04.383578Z 24 [Warning] [MY-010055] [Server] IP address '61.153.237.123' could not be resolved: Name or service not known             
      
 **Match**:    
-'%{TIMESTAMP_ISO8601:timestamp} %{NUMBER:threadid} \[%{DATA:priority}] \[%{DATA:err_code}] \[%{DATA:subsystem}] %{GREEDYDATA:message}'
+'%{TIMESTAMP_ISO8601:timestamp} %{NUMBER:threadid} \[%{DATA:priority}] \[%{DATA:err_code}] \[%{DATA:subsystem}] %{GREEDYDATA:msg}'
 
+**Example**:    
+160512 16:21:20  InnoDB: Setting file ./ibdata1 size to 10 MB             
+180306 12:20:51 [Note] Event Scheduler: Purging the queue. 0 events        
+190418 13:24:24 [ERROR] Missing system table mysql.proxies_priv; please run mysql_upgrade to create it          
+190419 13:35:54 [Warning] IP address '104.248.153.159' could not be resolved: Name or service not known       
+     
+**Match**:    
+'%{DATA:num} %{DATA:time} (?: %{DATA:write}:|\[%{DATA:priority}]) %{GREEDYDATA:msg}'
 
 ## secure
 
