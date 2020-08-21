@@ -125,7 +125,7 @@ Feb 16 04:01:01 ns508880 systemd: Started Session 10123 of user root.
 190419 13:35:54 [Warning] IP address '104.248.153.159' could not be resolved: Name or service not known       
      
 **Match**:    
-'%{DATA:num} %{DATA:time} (?: %{DATA:write}:|\[%{DATA:priority}]) %{GREEDYDATA:msg}'
+'(?<year>[0-9]{2})(?<month>[0-9]{2})(?<day>[0-9]{2}) +%{DATA:time} (?: %{DATA:write}:|\[%{DATA:priority}]|%{DATA:write}) %{GREEDYDATA:msg}'
 
 ## secure
 
