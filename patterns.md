@@ -1,5 +1,9 @@
 # Patterns
+
+
+In many patterns \ symbol doesn't appear. Put \ before [ and ]
    
+
 ## access_log
 
 **Example**:    
